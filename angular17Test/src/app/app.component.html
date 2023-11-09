@@ -243,6 +243,18 @@
       <p *ngIf="data != 5">
         No, it is not 5
       </p>
+
+      @for (item of array_Data; track item; let i = $index) {
+        <h3>data number {{ i }} : {{ item }}</h3>
+      } @empty {
+        <p>wtf that array how nothing</p>
+      }
+
+      <br>
+
+      <p *ngFor="let item of array_Data; let i = index">
+        data number {{ i }} : {{ item }}
+      </p>
       
       <p>Congratulations! Your app is running. 🎉</p>
    </div>
