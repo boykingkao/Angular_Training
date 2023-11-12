@@ -227,16 +227,16 @@
       </svg>
       <h1>Hello, {{ title }}</h1>
       <h2>data is {{ data }}</h2>
+      <h2>{{env | json}}</h2>
 
-
-      <!-- angular 17 -->
-      @if(data == 5){
+     
+      <!-- @if(data == 5){
         <p>Yes, it is 5</p>
       } @else {
         <p>No, it is not 5</p>
       }
 
-      <!-- older angular's version -->
+   
       <p *ngIf="data == 5">
         Yes, it is 5
       </p>
@@ -255,7 +255,7 @@
       <p *ngFor="let item of array_Data; let i = index">
         data number {{ i }} : {{ item }}
       </p>
-      
+       -->
       <p>Congratulations! Your app is running. 🎉</p>
    </div>
     <div class="divider" role="separator" aria-label="Divider"></div>

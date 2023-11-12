@@ -2,6 +2,7 @@ import { Component, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
 import { HomeComponent } from "./home/home.component";
+import { environment } from '../environments/environment';
 
 @Component({
     selector: 'app-root',
@@ -15,4 +16,5 @@ export class AppComponent {
 
   data = 5
   array_Data:number[] = [1,2,3,4,5,6,7]
+  env = environment;
 }
