@@ -226,6 +226,17 @@
         </defs>
       </svg>
       <h1>Hello, {{ title }}</h1>
+
+      <nav>
+        <ul >
+          <!-- <li><a routerLink="/home" routerLinkActive="active" ariaCurrentWhenActive="page">HOME Component</a></li>
+          <li><a routerLink="/items" routerLinkActive="active" ariaCurrentWhenActive="page">ITEMS Component</a></li> -->
+          <li><a href="/home" routerLinkActive="active" ariaCurrentWhenActive="page">HOME Component</a></li>
+          <li><a href="/items" routerLinkActive="active" ariaCurrentWhenActive="page">ITEMS Component</a></li>
+          <li><a href="https://angular.io">click it</a></li>
+        </ul>
+      </nav>
+
       <h2>data is {{ data }}</h2>
       <h2>{{env | json}}</h2>
 
