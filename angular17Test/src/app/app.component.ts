@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
 import { HomeComponent } from './home/home.component';
 import { environment } from '../environments/environment';
+import { MainService } from './main.service';
 
 @Component({
   selector: 'app-root',
@@ -14,15 +15,23 @@ import { environment } from '../environments/environment';
 export class AppComponent implements OnInit {
   title = 'angular17Test';
   count = signal(50);
-  
 
   data = 5;
   array_Data: number[] = [1, 2, 3, 4, 5, 6, 7];
   env = environment;
 
+  constructor(protected mainService: MainService) {}
+
+  
 
   ngOnInit() {
     // Signals are getter functions - calling them reads their value.
     console.log('The count is: ' + this.count());
   }
+
+  // effect(() => {
+  //   console.log(`The current count is:`);
+  // });
+
+ 
 }
