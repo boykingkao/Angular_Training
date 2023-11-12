@@ -18,19 +18,20 @@ import { MainService } from '../main.service';
 })
 export class ItemListComponent implements OnInit {
   data = signal(0);
-  count: WritableSignal<number> = signal(0);
-
-  doubleData = signal(() => this.data() * 2);
+  // count: WritableSignal<number> = signal(0);
+  // doubleData = signal(() => this.data() * 2);
 
   constructor(protected mainService: MainService) {
+    effect(() => {
+      // ภายใน effect() ต้องการการกระทำที่เกีั่ยวกับ signal ถึงจะทำงาน
+      // console.log(`item data is ${this.data()}`);
+      alert(`${this.data()}`);
+    });
   }
 
   ngOnInit(): void {
-    // Signals are getter functions - calling them reads their value.
-    console.log('The count is: ' + this.data());
-  }
 
-  
+  }
 
   conditionalCount = computed(() => {
     if (this.data() <= 10) {
@@ -42,25 +43,19 @@ export class ItemListComponent implements OnInit {
     }
   });
 
-
-
   increase() {
-    this.data.set(this.data() + 1);
-    this.mainService.data.set(this.mainService.data() + 1);
-    this.mainService.testData.count.set(this.mainService.testData.count() + 1);
+    this.data.update((n) => n + 1);
+    this.mainService.data.update((n) => n + 1);
+    this.mainService.testData.count.update((n) => n + 1);
     this.mainService.oldData += 1;
-    console.log(this.conditionalCount())
-
+    console.log(this.conditionalCount());
   }
 
   decrease() {
-    this.data.set(this.data() - 1);
-    this.mainService.data.set(this.mainService.data() - 1);
-    this.mainService.testData.count.set(this.mainService.testData.count() - 1);
-
+    this.data.update((n) => n - 1);
+    this.mainService.data.update((n) => n - 1);
+    this.mainService.testData.count.update((n) => n - 1);
     this.mainService.oldData -= 1;
-    console.log(this.conditionalCount())
-
-
+    console.log(this.conditionalCount());
   }
 }

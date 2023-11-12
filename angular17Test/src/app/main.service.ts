@@ -1,4 +1,4 @@
-import { Injectable, signal, WritableSignal, effect, EffectRef } from '@angular/core';
+import { Injectable, signal, WritableSignal, effect } from '@angular/core';
 
 @Injectable({
   providedIn: 'root'
@@ -33,12 +33,12 @@ export class MainService {
 
 
 class Data{
-  count = signal(0)
+  count = signal<number>(0)
 
   constructor() { 
-    console.log('you used this class')
     effect(() => {
-      console.log(`data class : ${this.count()}`);
+      console.log(`count from Data class : ${this.count()}`);
+      
     })
 
    
