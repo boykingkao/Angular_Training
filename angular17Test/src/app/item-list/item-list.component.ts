@@ -5,6 +5,7 @@ import {
   WritableSignal,
   effect,
   computed,
+  untracked,
 } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MainService } from '../main.service';
@@ -24,9 +25,17 @@ export class ItemListComponent implements OnInit {
   constructor(protected mainService: MainService) {
     effect(() => {
       // ภายใน effect() ต้องการการกระทำที่เกีั่ยวกับ signal ถึงจะทำงาน
-      // console.log(`item data is ${this.data()}`);
-      alert(`${this.data()}`);
+      console.log(`item data is changed : ${this.data()}`);
+      // alert(`${this.data()}`);
     });
+
+    effect(() => {
+      untracked(() => {
+        console.log(`data class is changed : ${this.mainService.testData.count()}`);
+      })
+      
+    });
+
   }
 
   ngOnInit(): void {
