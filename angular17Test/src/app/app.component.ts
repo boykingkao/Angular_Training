@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
 import { HomeComponent } from "./home/home.component";
@@ -12,7 +12,6 @@ import { HomeComponent } from "./home/home.component";
 })
 export class AppComponent {
   title = 'angular17Test';
-
 
   data = 5
   array_Data:number[] = [1,2,3,4,5,6,7]

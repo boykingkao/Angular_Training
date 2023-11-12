@@ -1,0 +1,10 @@
+version: "3"
+services:
+  angular:
+    image: angular_image
+    container_name: angular_container
+    build:
+      context: ../
+      dockerfile: ./deploy/Dockerfile
+    ports:
+      - "4200:80"
