@@ -6,12 +6,16 @@ import {
   effect,
   computed,
   untracked,
+  inject
 } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MainService } from '../main.service';
 
 @Component({
   selector: 'app-item-list',
+  template: `
+    Welcome to Angular!
+  `,
   standalone: true,
   imports: [CommonModule],
   templateUrl: './item-list.component.html',
@@ -22,11 +26,13 @@ export class ItemListComponent implements OnInit {
   // count: WritableSignal<number> = signal(0);
   // doubleData = signal(() => this.data() * 2);
 
-  constructor(protected mainService: MainService) {
+  protected mainService = inject(MainService)
+  constructor(
+    // protected mainService: MainService
+    ) {
     effect(() => {
       // ภายใน effect() ต้องการการกระทำที่เกีั่ยวกับ signal ถึงจะทำงาน
       console.log(`item data is changed : ${this.data()}`);
-      // alert(`${this.data()}`);
     });
 
     effect(() => {

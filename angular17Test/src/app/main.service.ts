@@ -1,18 +1,15 @@
 import { Injectable, signal, WritableSignal, effect } from '@angular/core';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class MainService {
-
-  constructor() { 
+  constructor() {
     effect(() => {
       console.log(`The current service data is: ${this.data()}`);
       // console.log(`new class data : ${this.testData.count()}`);
       // this.testData.count.set(this.data());
-    })
-
-   
+    });
   }
 
   // gohza = () => {
@@ -21,26 +18,28 @@ export class MainService {
   //   })
   // }
 
+  data: WritableSignal<number> = signal(0);
 
-  data:WritableSignal<number> = signal(0)
+  testData = new Data();
 
-  testData = new Data()
-
-  oldData:number = 0
-
-
+  oldData: number = 0;
 }
+class Data {
+  count = signal<number>(0);
 
-
-class Data{
-  count = signal<number>(0)
-
-  constructor() { 
+  constructor() {
     effect(() => {
       console.log(`count from Data class : ${this.count()}`);
-      
-    })
+    });
+  }
+}
 
-   
+class TextData {
+  count = signal<string>('');
+
+  constructor() {
+    effect(() => {
+      console.log(`text Data : ${this.count()}`);
+    });
   }
 }
