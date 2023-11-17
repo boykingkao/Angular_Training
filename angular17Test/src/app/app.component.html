@@ -1,22 +1,38 @@
+<div style="display: flex; flex-direction: column; align-items: center;"><h1>Hello, {{ title }}</h1>
 
-      <h1>Hello, {{ title }}</h1>
-
-      <nav>
-        <ul >
-          <!-- <li><a routerLink="/home" routerLinkActive="active" ariaCurrentWhenActive="page">HOME Component</a></li>
+<nav>
+  <ul>
+    <!-- <li><a routerLink="/home" routerLinkActive="active" ariaCurrentWhenActive="page">HOME Component</a></li>
           <li><a routerLink="/items" routerLinkActive="active" ariaCurrentWhenActive="page">ITEMS Component</a></li> -->
-          <li><a href="/home" routerLinkActive="active" ariaCurrentWhenActive="page">HOME Component</a></li>
-          <li><a href="/items" routerLinkActive="active" ariaCurrentWhenActive="page">ITEMS Component</a></li>
-          <li><a href="https://angular.io">click it</a></li>
-        </ul>
-      </nav>
-      <p>signal data is : {{mainService.data()}}</p>
-      <p>old data is : {{mainService.oldData}}</p>
-      <h2>data is {{ data }}</h2>
-      <h2>{{env | json}}</h2>
+    <li>
+      <a href="/home" routerLinkActive="active" ariaCurrentWhenActive="page"
+        >HOME Component</a
+      >
+    </li>
+    <li>
+      <a href="/items" routerLinkActive="active" ariaCurrentWhenActive="page"
+        >ITEMS Component</a
+      >
+    </li>
+    <li><a href="https://angular.io">click it</a></li>
+  </ul>
+</nav>
 
-     
-      <!-- @if(data == 5){
+<button (click)="doFunction()">do something</button>
+@if (lineProfileData) {
+<p>user id : {{ lineProfileData.userId }}</p>
+<p>display name : {{ lineProfileData.displayName }}</p>
+<img src="{{ lineProfileData.pictureUrl }}" alt="" />
+} @else {
+<p>no LIFF data</p>
+}
+
+<p>signal data is : {{ mainService.data() }}</p>
+<p>old data is : {{ mainService.oldData }}</p>
+<h2>data is {{ data }}</h2>
+<h2>{{ env | json }}</h2>
+
+<!-- @if(data == 5){
         <p>Yes, it is 5</p>
       } @else {
         <p>No, it is not 5</p>
@@ -42,8 +58,9 @@
         data number {{ i }} : {{ item }}
       </p>
        -->
-      <p>Congratulations! Your app is running. 🎉</p>
+<p>Congratulations! Your app is running. 🎉</p>
 
-<hr>
+<hr />
+</div>
 
 <router-outlet></router-outlet>
